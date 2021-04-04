@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <!-- required meta tags-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1 , shrink-to-fit=no">
+
+        <!-- botstrap css-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <title>Hacıbaba</title>
+        <style>
+            
+            
+            .screen{
+                width: 502px;
+                height: 502px;
+                border: 1px;
+                border-style: solid;
+                border-color: black;
+                margin-top: 10px;
+                margin-left: 500px; 
+                overflow: hidden;
+                position: relative;
+                
+                
+                
+                
+                
+
+                
+                       
+
+            }
+
+            .screen .img1 {
+                z-index: 3;
+                position: absolute;
+                
+                
+                
+            }
+            .screen .img2 {
+                z-index: 2;
+                position: absolute;
+                
+                
+                
+            }
+            
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>   
+
+        <div >
+            
+            <div class="screen" onclick="clicked()" >
+                <img src="1.jpg" class="img1" id="img1" >
+                <img src="2.jpg" class="img2" id="img2">
+            </div>
+        </div>
+            <script>
+                function clicked(){
+                    var element1=document.getElementById("img1");
+                    const styleImage1 = getComputedStyle(element1);
+
+                    var element2=document.getElementById("img2");
+                    const styleImage2 = getComputedStyle(element2);
+
+                    element2.style.left =500+"px";
+                    element1.style.left=0+"px";  
+                    
+			function move(){
+                
+                var left1 = styleImage1.left;//string
+                left1 = parseInt(left1); //integer
+				left1 = left1 - 1;
+                var left2 = styleImage2.left;//string
+                left2 = parseInt(left2); //integer
+				left2 = left2 - 1;
+				element1.style.left = left1 +"px";
+                
+                element2.style.left = left2 +"px";
+				setTimeout(move,5);
+                if(element1.style.left==-500+"px"){
+                    element1.style.left=500+"px";
+                }
+                if(element2.style.left==-500+"px"){
+                    element2.style.left=500+"px";
+                }
+                
+				
+			}
+            
+            move();
+            
+            
+			//console.log(left);
+			//console.log(parseInt(left));
+			//imgone.style.left = window.parseInteger(left);
+			}
+                    
+            </script>
+        
+
+        
+    </body>
+
+</html>
